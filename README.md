@@ -66,6 +66,7 @@ Target.txt can be found under os/board/unsupported/rpi_3 directory.
 
 By now, VxWorks 7 based released SR0610 is supported by this BSP, and some
 common drivers are also supported by PSL as below:
+
 | Hardware Interface | Controller | Driver/Component | Status |
 | ------ | ------ | ------ | ------ |
 Mini UART | on-chip | DRV_SIO_FDT_NS16550 | SUPPORTED 
