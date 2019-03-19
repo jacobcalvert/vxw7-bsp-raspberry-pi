@@ -1,0 +1,34 @@
+/* rpi-3b-plus.dts - Raspberry Pi 3 Model B+ device tree source */
+
+/*
+modification history
+--------------------
+08mar19,hkl  created (F11409)
+*/
+
+/dts-v1/;
+
+#include "prjParams.h"
+#include "rpi-3.dtsi"
+
+/   {
+    model = "Raspberry Pi 3 Model B+ - ARMv8";
+
+    aliases
+        {
+        serial1 = &uart1;
+        };
+
+    memory
+        {
+        device_type = "memory";
+        reg = <0x0 0x0 0x0 0x3b400000>;
+        };
+
+    chosen
+        {
+        bootargs = "dummy(0,0)host:vxWorks h=192.168.0.2 e=192.168.0.3:ffffff00 g=192.168.0.1 u=target pw=vxTarget";
+        stdout-path = "serial1";
+        };
+    };
+
