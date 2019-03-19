@@ -66,10 +66,10 @@ Target.txt can be found under os/board/unsupported/rpi_3 directory.
 
 By now, VxWorks 7 based released SR0610 is supported by this BSP, and some
 common drivers are also supported by PSL as below:
-Hardware Interface | Controller | Driver/Component                | Status
-/-------------------------------------------------------------------------------
-Mini UART          | on-chip    | DRV_SIO_FDT_NS16550             | SUPPORTED
-BCM2837 L1 INTCTLR | on-chip    | DRV_INTCTLR_FDT_BCM2837_L1_INTC | SUPPORTED
+| Hardware Interface | Controller | Driver/Component | Status |
+| ------ | ------ | ------ | ------ |
+Mini UART | on-chip | DRV_SIO_FDT_NS16550 | SUPPORTED 
+BCM2837 L1 INTCTLR | on-chip    | DRV_INTCTLR_FDT_BCM2837_L1_INTC | SUPPORTED 
 BCM2837 INTCTLR    | on-chip    | DRV_INTCTLR_FDT_BCM2837_INTC    | SUPPORTED
 ARM Generic Timer  | on-chip    | DRV_ARM_GEN_TIMER               | SUPPORTED
 System Timer       | on-chip    | DRV_TIMER_FDT_BCM2837_SYSTIMER  | SUPPORTED
@@ -87,4 +87,3 @@ Bluetooth          | unknown    |                                 | UNSUPPORTED
 
 The detailed introduction of these drivers and usage can also be found in
 target.txt. It is similar as other BSP in VxWorks 7 SR0610.
-
