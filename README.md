@@ -2,13 +2,13 @@ VxWorks® 7 Raspberry Pi 3B/3B+ unsupported BSP
 ===
 ---
 
-#Overview
+# Overview
 
 This document describes the features of the rpi_3 BSP/PSL, which is designed
 to run on the Raspberry Pi 3 Model B/B+ board. This is an ARM Cortex-A53
 processor-based platform.
 
-#Project License
+# Project License
 
 Copyright (c) 2019 Wind River Systems, Inc.
 
@@ -38,14 +38,14 @@ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
-#Prerequisite(s)
+# Prerequisite(s)
 
 * You must have Wind River® VxWorks® 7 SR0610 released source code and
   development environment to support "Raspberry Pi 3B/B+ unsupported BSP".
 
-#Building and Using
+# Building and Using
 
-###Setup
+### Setup
 
 Checkout feature of GitHub to place the contents of this repository 
 in your VxWorks® install tree at an appropriate location:
@@ -55,14 +55,14 @@ cp -r os/board/unsupported/rpi_3 ***installDir***/vxworks-7/pkgs_v2/os/board/uns
 cp -r os/psl/unsupported/bcm2837  ***installDir***/vxworks-7/pkgs_v2/os/psl/unsupported
 
 ```
-###Building
+### Building
 
 The building process comprises three parts, U-Boot, VSB project and VIP project.
 U-Boot is open source code that can be got from related official server.
 The building process of these three parts are all described in target.txt.
 Target.txt can be found under os/board/unsupported/rpi_3 directory.
 
-###Drivers
+### Drivers
 
 By now, VxWorks 7 based released SR0610 is supported by this BSP, and some
 common drivers are also supported by PSL as below:
