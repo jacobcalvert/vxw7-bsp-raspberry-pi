@@ -55,8 +55,8 @@ here has a "rpi-dev" suffix to avoid collision with any existing installation.
 
 1. Download all three layers from Github.
 ```Bash
-git clone https://github.com/Wind-River/vx7-bsp-raspberry-pi/tree/rpi-dev
-cd rpi-dev
+git clone -b rpi-dev https://github.com/Wind-River/vx7-bsp-raspberry-pi.git
+cd vx7-bsp-raspberry-pi
 ```
 
 2. Prepare the USB layer. The downloaded usb-W.X.Y.Z.rpidev is not a complete layer, 
@@ -84,9 +84,9 @@ layers among the source tree.
 Here's how it’s done:
 
 ```Bash
-cp -R rpi_3-W.X.Y.Z.rpidev ***installDir***/vxworks-7/pkges_v2/os/board/unsupported/
-cp –R bcm2837-W.X.Y.Z.rpidev ***installDir***/vxworks-7/pkgs_v2/os/psl/unsupported/
-cp –R usb-W.X.Y.Z.rpidev ***installDir***/vxworks-7/pkgs_v2/connectivity/
+cp -r rpi_3-W.X.Y.Z.rpidev ***installDir***/vxworks-7/pkges_v2/os/board/unsupported/
+cp –r bcm2837-W.X.Y.Z.rpidev ***installDir***/vxworks-7/pkgs_v2/os/psl/unsupported/
+cp –r usb-W.X.Y.Z.rpidev ***installDir***/vxworks-7/pkgs_v2/connectivity/
 ```
 
 #### Install beside the source tree
@@ -101,8 +101,8 @@ Suppose all three packages are in /home/rpidev/, then do the following when laun
 or Workbench:
 
 ```Bash
-set WIND_LAYER_PATHS /home/ripdev
-set WIND_BSP_PATHS /home/ripdev
+export WIND_LAYER_PATHS=/home/rpidev
+export WIND_BSP_PATHS=/home/rpidev
 ```
 then 
 ```Bash
@@ -137,6 +137,8 @@ GPIO               | on-chip    | DRV_GPIO_FDT_BCM2837            | SUPPORTED
 I2C                | on-chip    | DRV_I2C_FDT_BCM2837             | SUPPORTED
 PinMux             | on-chip    |                                 | UNSUPPORTED
 SPI                | on-chip    | DRV_SPI_FDT_BCM2837             | SUPPORTED
+USB HOST           | on-chip    | USB Host Stack(DWC2DR)          | SUPPORTED
+USB ETHERNET       | on-chip    | INCLUDE_USB_GEN2_LAN78XX        | SUPPORTED
 Audio              | on-chip    |                                 | UNSUPPORTED
 HDMI               | on-chip    |                                 | UNSUPPORTED
 Watchdog Module    | on-chip    |                                 | UNSUPPORTED
