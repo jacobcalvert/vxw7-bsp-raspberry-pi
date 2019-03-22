@@ -45,16 +45,74 @@ POSSIBILITY OF SUCH DAMAGE.
 
 # Building and Using
 
-### Setup
+### Preparation
 
-Checkout feature of GitHub to place the contents of this repository 
-in your VxWorks® install tree at an appropriate location:
+IMPORTANT: Your existing VxWorks 7 installation may already contains the rpi_3 BSP 
+and bcm2837 PSL, please check following installation location to see whether they 
+exist already. This Open Source BSP can exist in parallel with your existing 
+installation by applying different layer versions. By default, all layers downloaded
+here has a "rpi-dev" suffix to avoid collision with any existing installation.  
+
+1. Download all three layers from Github.
 ```Bash
-cp -r os/board/unsupported/rpi_3 ***installDir***/vxworks-7/pkgs_v2/os/board/unsupported
-
-cp -r os/psl/unsupported/bcm2837  ***installDir***/vxworks-7/pkgs_v2/os/psl/unsupported
-
+git clone https://github.com/Wind-River/vx7-bsp-raspberry-pi/tree/rpi-dev
+cd rpi-dev
 ```
+
+2. Prepare the USB layer. The downloaded usb-W.X.Y.Z.rpidev is not a complete layer, 
+but just contains the incremental modification needed by the Open Source BSP, thus user
+shall first make a copy of the original usb-W.X.Y.Z layer (IMPORTANT: the version must
+match), rename it to usb-W.X.Y.Z.rpidev, then copy the usb-W.X.Y.Z.rpidev.overwrite 
+content into it:
+```Bash
+cp -r ***installDir***/vxworks-7/pkgs_v2/connectivity/usb-W.X.Y.Z ./usb-W.X.Y.Z.rpidev
+cp -r ./usb-W.X.Y.Z.rpidev.overwrite/* ./usb-W.X.Y.Z.rpidev/
+```
+
+### Installation
+
+There are two ways to install this BSP: inside existing VxWorks-7 Installation or outside
+existing VxWorks-7 Installation.
+
+#### Install into the source tree
+
+All layers in this BSP goes to their respective destination among the existing installation. 
+The advantage is the BSP will always be accessible once you complete the installation. The 
+disadvantage is you can't shut down this BSP unless you manually delete all the installed 
+layers among the source tree.
+
+Here's how it’s done:
+
+```Bash
+cp -R rpi_3-W.X.Y.Z.rpidev ***installDir***/vxworks-7/pkges_v2/os/board/unsupported/
+cp –R bcm2837-W.X.Y.Z.rpidev ***installDir***/vxworks-7/pkgs_v2/os/psl/unsupported/
+cp –R usb-W.X.Y.Z.rpidev ***installDir***/vxworks-7/pkgs_v2/connectivity/
+```
+
+#### Install beside the source tree
+
+All layers are copied in a place that's outside the default scanning folder, i.e., 
+vxworks-7/pkgs_v2, and when launching the Development Shell or Workbench, the path containing 
+this BSP is provided to the development environment. The advantage of this method is obvious, 
+the package can be easily turn on or off, and the source code stays in one unified location 
+external to the default installation, which makes it easier to manage.
+
+Suppose all three packages are in /home/rpidev/, then do the following when launching wrenv
+or Workbench:
+
+```Bash
+set WIND_LAYER_PATHS /home/ripdev
+set WIND_BSP_PATHS /home/ripdev
+```
+then 
+```Bash
+./wrenv.sh -p vxworks-7
+```
+or
+```Bash
+./startWorkBench.sh
+```
+
 ### Building
 
 The building process comprises three parts, U-Boot, VSB project and VIP project.

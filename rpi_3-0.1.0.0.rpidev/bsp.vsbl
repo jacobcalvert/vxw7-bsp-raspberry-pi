@@ -1,4 +1,4 @@
-/* layer.vsbl - BCM2837 Processor Support library layer  */
+/* bsp.vsbl - Raspberry Pi 3 family BSP metadata file */
 
 /*
  * Copyright (c) 2019 Wind River Systems, Inc.
@@ -29,26 +29,23 @@
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-
 /*
-Modification history
+modification history
 --------------------
-08mar19,npc  created (F11409)
+12mar19,mze  disabled DOC_BUILD
+08mar19,hkl  created (F11409)
 */
 
-Layer BCM2837
+Layer rpi_3
     {
-    SYNOPSIS         (Unsupported) BCM2837 processor support libraries
-    HELP             (Unsupported) This provides the BCM2837 processor \
-                     support libraries (PSL).
-    VERSION          0.1.0.0
-    VENDOR           Wind River
-    FEATURE          PSL
-    VSB_REQUIRES     ARCH_arm
-    LAYER_REQUIRES   FDT SERVICE UTILS VXBUS
+    SYNOPSIS            (Unsupported) Raspberry Pi 3 family board support \
+                        package (BSP)
+    HELP                (Unsupported) This layer provides the Raspberry Pi 3 \
+                        family board support package.
+    VERSION             0.1.0.0.rpidev
+    VENDOR              Wind River
+    LAYER_REQUIRES      FDT VXBUS_DRV UTILS BCM2837 ARM
     FEATURE_REQUIRES
-    OPTIONAL         YES
-    DEFAULT          NO
-    LAYER_TYPE       PSL
-    LAYER_STATUS     UNSUPPORTED
+    LAYER_STATUS        UNSUPPORTED
+    DOC_BUILD           NO
     }

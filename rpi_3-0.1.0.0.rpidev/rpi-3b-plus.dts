@@ -35,6 +35,9 @@ modification history
 
 &usb
     {
+    #address-cells = <1>;
+    #size-cells = <0>;
+
     usbhub1@1
         {
         compatible = "usb424,2514";

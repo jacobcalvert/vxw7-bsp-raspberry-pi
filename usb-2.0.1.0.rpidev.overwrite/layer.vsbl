@@ -1,0 +1,48 @@
+/* layer.vsbl - USB container layer  */
+/*
+ * Copyright (c) 2013-2016, 2018 Wind River Systems, Inc.
+ *
+ * The right to copy, distribute, modify, or otherwise make use
+ * of this software may be licensed only pursuant to the terms
+ * of an applicable Wind River license agreement.
+ */
+
+/*
+Modification history
+--------------------
+27sep18,whu  updated version to 2.0.1.0 (F9369)
+22mar18,mze  rewritten for condensed layers
+05jan16,rtm  add USB Feature (US73137)
+10aug15,iwr  updated HELP field
+23sep14,rbc  Upgrade version number to 1.0.0.1. Sub-layer HOST updated
+             for defect (V7CON-179)
+30may14,j_x  set DEFAULT to NO (V7CON-139)
+22apr14,s_z  add PLX TCD support both on VxBus new mode and legacy mode 
+             (US37236), include FDT dependence, update version as 1.1.0.0
+17apr14,s_z  add USB target stack support on VxBus new mode and
+             legacy mode (US23307 and US34223)
+21mar14,j_x  fixes VXW7-2655 and upgrade version to 1.0.0.1
+14feb14,rdl  replace DEPENDS with API_DEPENDS
+11feb14,j_x  remove DEPENDS from container layer
+22jan14,rdl  correct typos of 'subsystem' and 'support'
+02jan14,rdl  add HELP field, correct formatting 
+01nov13,s_z  remove VXBUS_LEGACY dependence to make USB work both on 
+             vxBus new model and vxBus legacy model
+12sep13,x_z  added compatibility requirement.
+26apr13,j_x  create
+*/
+
+
+Layer  USB
+    {
+    SYNOPSIS        USB libraries
+    HELP            This includes all Universal Serial Bus (USB) support.
+    VERSION         2.0.1.0.rpidev
+    VENDOR          Wind River
+    FEATURE         CONNECTIVITY
+    VSB_REQUIRES    !CPU_SIMNT && !CPU_SIMLINUX && !MEM_ALLOT
+    LAYER_REQUIRES  LIBC_STD
+    OPTIONAL        YES
+    DEFAULT         NO
+    DOC_BUILD       YES
+    }
