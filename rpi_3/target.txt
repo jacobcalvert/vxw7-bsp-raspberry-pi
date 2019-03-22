@@ -354,6 +354,8 @@ GPIO               | on-chip    | DRV_GPIO_FDT_BCM2837            | SUPPORTED
 I2C                | on-chip    | DRV_I2C_FDT_BCM2837             | SUPPORTED
 PinMux             | on-chip    |                                 | UNSUPPORTED
 SPI                | on-chip    | DRV_SPI_FDT_BCM2837             | SUPPORTED
+USB HOST           | on-chip    | USB Host Stack(DWC2DR)          | SUPPORTED
+USB ETHERNET       | on-chip    | INCLUDE_USB_GEN2_LAN78XX        | SUPPORTED
 Audio              | on-chip    |                                 | UNSUPPORTED
 HDMI               | on-chip    |                                 | UNSUPPORTED
 Watchdog Module    | on-chip    |                                 | UNSUPPORTED
@@ -446,6 +448,59 @@ in this BSP. It is supported by component DRV_I2C_FDT_BCM2837.
 To include this support, add the following component to your VIP:
 
     vxprj component add DRV_I2C_FDT_BCM2837
+
+USB
+
+Raspberry Pi 3 Model B+ SOC has one USB controller(Synopsys DesignWare USB2.0
+OTG). The controller supports USB 1.1 and USB 2.0 standard.
+
+Currently, the driver only support "Pure Host" mode in this BSP.
+
+The USB layer must be added to the created VSB.
+
+    vxprj vsb add USB
+
+While in the created VIP, components for DWC2DR and ALT5 PHY need be
+enabled. To use different USB devices, USB class drivers need be enabled too.
+Please refer to USB programmer guide for more detail to enable kinds of USB
+class driver. For example, following component will add USB mass storage class
+driver to support USB mass storage devices:
+
+    vxprj component add INCLUDE_SYNOPSYSHCI_INIT
+    vxprj component add INCLUDE_USB_PHY_ALT5
+    vxprj component add INCLUDE_USB_GEN2_STORAGE_INIT
+
+USB ETHERNET
+
+Raspberry Pi 3 Model B+ board use one USB Ethernet card to provide network. To
+use Ethernet port, need to add the USB controller and USB Ethernet card components.
+
+The USB layer must be added to the created VSB first.
+
+    vxprj vsb add USB
+
+And the following componets will add USB controller and USB ethernet card drivers
+to support USB network devices:
+
+    vxprj component add INCLUDE_SYNOPSYSHCI_INIT
+    vxprj component add INCLUDE_USB_PHY_ALT5
+    vxprj component add INCLUDE_USB_GEN2_LAN78XX
+    vxprj component add INCLUDE_USB_GEN2_END_INIT
+
+If you want o change the default IP address&netmask, could set the following
+parameters, for example:
+
+    vxprj parameter set USB_GEN2_END_IP_ADDRESS {'"192.168.100.10"'}
+    vxprj parameter set USB_GEN2_END_NET_MASK {0xffffff00}
+
+Currently, The Ethernet MAC address can only be set by the device tree node.
+To change the address, open the device tree source (DTS) file, locate the
+required property, and modify it manually. For example:
+
+    local-mac-address = [ b8 27 eb d7 23 ac ​];
+
+    NOTE: each Raspberry Pi 3 Model B+ board have its own MAC address,
+          and can find it in U-boot environment variable "ethaddr".
 
 Limitations and Known Issues
 

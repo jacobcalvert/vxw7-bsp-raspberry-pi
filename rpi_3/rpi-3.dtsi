@@ -148,5 +148,26 @@ modification history
             clock-frequency = <250000000>;
             status = "disabled";
             };
+
+        usbphy: usbphy@3f980000
+            {
+            compatible = "brcm,bcm2708-usb-phy";
+            reg = <0x0 0x3f980000 0x0 0x1000>;
+            phy_type = "utmi";
+            };
+
+        usb: usb@3f980000
+            {
+            compatible = "brcm,bcm2708-usb";
+            reg = <0x0 0x3f980000 0x0 0x10000>;
+            interrupts = <41>;
+            interrupt-parent = <&intc>;
+            rhnum-ports = <1>;
+            dma-channels = <8>;
+            platform-type = <2>; /* 2: Raspberry Pi 3 */
+            devno = <1>;
+            usb-phy = <&usbphy>;
+            default-mode = "host";
+            };
         };
     };

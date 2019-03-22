@@ -17,6 +17,7 @@ modification history
     aliases
         {
         serial1 = &uart1;
+        ethernet0 = &ethernet;
         };
 
     memory
@@ -32,3 +33,28 @@ modification history
         };
     };
 
+&usb
+    {
+    usbhub1@1
+        {
+        compatible = "usb424,2514";
+        reg = <1>;
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        usbhub2@1
+            {
+            compatible = "usb424,2514";
+            reg = <1>;
+            #address-cells = <1>;
+            #size-cells = <0>;
+
+            ethernet: usbether@1
+                {
+                compatible = "usb424,7800";
+                reg = <1>;
+                local-mac-address = [ 00 11 22 33 44 55 ];
+                };
+            };
+        };
+    };
