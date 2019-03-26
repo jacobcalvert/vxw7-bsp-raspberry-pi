@@ -1,35 +1,39 @@
 /* layer.vsbl - USB container layer  */
+
 /*
- * Copyright (c) 2013-2016, 2018 Wind River Systems, Inc.
+ * Copyright (c) 2019 Wind River Systems, Inc.
  *
- * The right to copy, distribute, modify, or otherwise make use
- * of this software may be licensed only pursuant to the terms
- * of an applicable Wind River license agreement.
+ * Redistribution and use in source and binary forms, with or without 
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1) Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ *
+ * 2) Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation 
+ * and/or other materials provided with the distribution.
+ *
+ * 3) Neither the name of Wind River Systems nor the names of its contributors 
+ * may be used to endorse or promote products derived from this software 
+ * without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+ * POSSIBILITY OF SUCH DAMAGE.
  */
 
 /*
 Modification history
 --------------------
-27sep18,whu  updated version to 2.0.1.0 (F9369)
-22mar18,mze  rewritten for condensed layers
-05jan16,rtm  add USB Feature (US73137)
-10aug15,iwr  updated HELP field
-23sep14,rbc  Upgrade version number to 1.0.0.1. Sub-layer HOST updated
-             for defect (V7CON-179)
-30may14,j_x  set DEFAULT to NO (V7CON-139)
-22apr14,s_z  add PLX TCD support both on VxBus new mode and legacy mode 
-             (US37236), include FDT dependence, update version as 1.1.0.0
-17apr14,s_z  add USB target stack support on VxBus new mode and
-             legacy mode (US23307 and US34223)
-21mar14,j_x  fixes VXW7-2655 and upgrade version to 1.0.0.1
-14feb14,rdl  replace DEPENDS with API_DEPENDS
-11feb14,j_x  remove DEPENDS from container layer
-22jan14,rdl  correct typos of 'subsystem' and 'support'
-02jan14,rdl  add HELP field, correct formatting 
-01nov13,s_z  remove VXBUS_LEGACY dependence to make USB work both on 
-             vxBus new model and vxBus legacy model
-12sep13,x_z  added compatibility requirement.
-26apr13,j_x  create
+26mar19,hkl  created (F11409)
 */
 
 
