@@ -51,15 +51,15 @@ IMPORTANT: Your existing VxWorks 7 installation may already contains the rpi_3 B
 and bcm2837 PSL, please check following installation location to see whether they 
 exist already. This Open Source BSP can exist in parallel with your existing 
 installation by applying different layer versions. By default, all layers downloaded
-here has a "rpi-dev" suffix to avoid collision with any existing installation.  
+here has a "rpidev" suffix to avoid collision with any existing installation.  
 
 1. Download all three layers from Github.
 ```Bash
-git clone -b rpi-dev https://github.com/Wind-River/vx7-bsp-raspberry-pi.git
+git clone https://github.com/Wind-River/vx7-bsp-raspberry-pi.git
 cd vx7-bsp-raspberry-pi
 ```
 
-2. Prepare the USB layer. The downloaded usb-W.X.Y.Z.rpidev is not a complete layer, 
+2. Prepare the USB layer. The downloaded usb-W.X.Y.Z.rpidev.overwrite is not a complete layer, 
 but just contains the incremental modification needed by the Open Source BSP, thus user
 shall first make a copy of the original usb-W.X.Y.Z layer (IMPORTANT: the version must
 match), rename it to usb-W.X.Y.Z.rpidev, then copy the usb-W.X.Y.Z.rpidev.overwrite 
@@ -118,7 +118,7 @@ or
 The building process comprises three parts, U-Boot, VSB project and VIP project.
 U-Boot is open source code that can be got from related official server.
 The building process of these three parts are all described in target.txt.
-Target.txt can be found under os/board/unsupported/rpi_3 directory.
+Target.txt can be found under rpi_3-W.X.Y.Z.rpidev directory.
 
 ### Drivers
 
