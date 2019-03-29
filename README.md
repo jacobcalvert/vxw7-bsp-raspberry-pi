@@ -104,13 +104,17 @@ or Workbench:
 export WIND_LAYER_PATHS=/home/rpidev
 export WIND_BSP_PATHS=/home/rpidev
 ```
-then 
+then enter into the existing VxWorks-7 installation directory
+```Bash
+cd ***installDir***
+```
+if use the Development Shell
 ```Bash
 ./wrenv.sh -p vxworks-7
 ```
-or
+or Workbench
 ```Bash
-./startWorkBench.sh
+./workbench-4/startWorkbench.sh
 ```
 
 ### Building
