@@ -84,7 +84,7 @@ layers among the source tree.
 Here's how it’s done:
 
 ```Bash
-cp -r rpi_3-W.X.Y.Z.rpidev ***installDir***/vxworks-7/pkges_v2/os/board/unsupported/
+cp -r rpi_3-W.X.Y.Z.rpidev ***installDir***/vxworks-7/pkgs_v2/os/board/unsupported/
 cp –r bcm2837-W.X.Y.Z.rpidev ***installDir***/vxworks-7/pkgs_v2/os/psl/unsupported/
 cp –r usb-W.X.Y.Z.rpidev ***installDir***/vxworks-7/pkgs_v2/connectivity/
 ```
