@@ -33,6 +33,7 @@
 /*
 modification history
 --------------------
+05may19,zxw  removed ISR pointer validation in interrupt config
 08mar19,zxw  created (F11409)
 */
 
@@ -703,17 +704,12 @@ LOCAL STATUS vxbBcm2837GpioIntConfig
     )
     {
     BCM2837_GPIO_DRVCTRL * pDrvCtrl = (BCM2837_GPIO_DRVCTRL *) pCtrl;
-    BCM2837_INT_NODE *     pNode;
     UINT32                 gpioIndex;
     UINT32                 regOffset;
 
     regOffset = (id >> 5) * 4;
     gpioIndex = 1u << (id % 32);
-
     pDrvCtrl = (BCM2837_GPIO_DRVCTRL *) pCtrl;
-    pNode = pDrvCtrl->pIntNode[id];
-    if (pNode == NULL)
-        return ERROR;
 
     SPIN_LOCK_ISR_TAKE (&pDrvCtrl->spinLock);
 
