@@ -29,6 +29,7 @@
 #
 # modification history
 # --------------------
+# 20may19,jnc  added smsc75xx usb ethernet card support
 # 29jan19,npc  added Lan78xx usb ethernet card support (F11409)
 # 27apr13,j_x  create
 #
@@ -39,10 +40,10 @@
 
 LIB_BASE_NAME = usbnetwork
 
-C_SOURCE = usb2Pgs.c usb2End.c usb2Asix.c usb2Dm960x.c
+C_SOURCE = usb2Pgs.c usb2End.c usb2Asix.c usb2Dm960x.c 
 
 ifeq ($(CPU), ARMARCH8A)
-C_SOURCE += usb2Lan78xx.c
+C_SOURCE += usb2Lan78xx.c usb2Smsc95xx.c
 endif
 
 ifeq ($(findstring $(VX_CPU_FAMILY), simlinux simpc simso),)
